@@ -65,8 +65,11 @@ img{max-width:100%}
 .mnav a.ml{color:#E8E4F2;text-decoration:none;font-size:18px;font-weight:600;padding:14px 0;border-bottom:1px solid rgba(255,255,255,.08)}
 @media (max-width:900px){#outsourcing .fa{display:none!important}.nav .links,.hero-art{display:none!important}.menu-btn{display:inline-flex}.cta-top{display:none!important}.wrap{padding:0 20px}}
 @media (max-width:560px){.reels{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:12px!important}.btn{font-size:15px;padding:0 20px}.g2{gap:16px}}
-.reels-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px;max-width:900px;margin-left:auto;margin-right:auto;width:100%}
-@media (max-width:700px){.reels-grid{grid-template-columns:minmax(0,1fr);max-width:420px}}
+.reels-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;width:100%;margin-top:20px}
+.reel-card{border-radius:22px;padding:8px}
+.reel-box{position:relative;overflow:hidden;border-radius:16px;aspect-ratio:326/560;background:#fff}
+.reel-box iframe{position:absolute;top:0;left:0;width:326px;height:560px;border:0;transform-origin:0 0}
+@media (max-width:1000px){.reels-grid{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:10px;-webkit-overflow-scrolling:touch}.reel-card{flex:0 0 260px;scroll-snap-align:start}}
 </style>
 
 </head>
@@ -215,7 +218,7 @@ img{max-width:100%}
 <div style="display: flex; flex-direction: column; gap: 14px; max-width: 640px"><span class="kick" style="color: #B7F34A">Producción audiovisual</span><h2 class="h2 mirror">Videos que detienen el scroll</h2></div>
 <p style="margin: 0; max-width: 420px; font-size: 16px; line-height: 1.6; color: #CFCBD9">Reels para ventas, videos de producto e institucionales, grabados y editados por nuestro equipo.</p>
 </div>
-<div class="reels-grid" style="margin-top: 20px"><div class="glass" style="border-radius: 26px; padding: 10px; overflow: hidden"><iframe src="https://www.instagram.com/reel/DRcnuQ4D2Ed/embed/" title="Reel de K-Media en Instagram 1" loading="lazy" allowfullscreen scrolling="no" style="width: 100%; height: 640px; border: 0; border-radius: 18px; background: #fff; display: block"></iframe></div><div class="glass" style="border-radius: 26px; padding: 10px; overflow: hidden"><iframe src="https://www.instagram.com/reel/DR-N-XHDtl4/embed/" title="Reel de K-Media en Instagram 2" loading="lazy" allowfullscreen scrolling="no" style="width: 100%; height: 640px; border: 0; border-radius: 18px; background: #fff; display: block"></iframe></div><div class="glass" style="border-radius: 26px; padding: 10px; overflow: hidden"><iframe src="https://www.instagram.com/reel/DWHgVcgjcMS/embed/" title="Reel de K-Media en Instagram 3" loading="lazy" allowfullscreen scrolling="no" style="width: 100%; height: 640px; border: 0; border-radius: 18px; background: #fff; display: block"></iframe></div><div class="glass" style="border-radius: 26px; padding: 10px; overflow: hidden"><iframe src="https://www.instagram.com/reel/DbMeqtXDYQG/embed/" title="Reel de K-Media en Instagram 4" loading="lazy" allowfullscreen scrolling="no" style="width: 100%; height: 640px; border: 0; border-radius: 18px; background: #fff; display: block"></iframe></div></div>
+<div class="reels-grid"><div class="glass reel-card"><div class="reel-box"><iframe src="https://www.instagram.com/reel/DRcnuQ4D2Ed/embed/" title="Reel de K-Media en Instagram 1" loading="lazy" allowfullscreen scrolling="no"></iframe></div></div><div class="glass reel-card"><div class="reel-box"><iframe src="https://www.instagram.com/reel/DR-N-XHDtl4/embed/" title="Reel de K-Media en Instagram 2" loading="lazy" allowfullscreen scrolling="no"></iframe></div></div><div class="glass reel-card"><div class="reel-box"><iframe src="https://www.instagram.com/reel/DWHgVcgjcMS/embed/" title="Reel de K-Media en Instagram 3" loading="lazy" allowfullscreen scrolling="no"></iframe></div></div><div class="glass reel-card"><div class="reel-box"><iframe src="https://www.instagram.com/reel/DbMeqtXDYQG/embed/" title="Reel de K-Media en Instagram 4" loading="lazy" allowfullscreen scrolling="no"></iframe></div></div></div>
 <a class="btn btn-o" href="https://instagram.com/kmediapty" target="_blank" rel="noopener" style="align-self: center">Ver más en Instagram @kmediapty</a>
 </div>
 </section>
@@ -507,6 +510,10 @@ document.querySelectorAll('[data-faq]').forEach(b=>b.addEventListener('click',()
 const mb=document.getElementById('menu-btn'),mn=document.getElementById('mnav');
 mb.addEventListener('click',()=>{const o=mn.hidden;mn.hidden=!o;mb.setAttribute('aria-expanded',String(o))});
 mn.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{mn.hidden=true;mb.setAttribute('aria-expanded','false')}));
+</script>
+<script>
+function fitReels(){document.querySelectorAll('.reel-box').forEach(b=>{const f=b.querySelector('iframe');f.style.transform='scale('+(b.clientWidth/326)+')'})}
+addEventListener('resize',fitReels);fitReels();
 </script>
 </body>
 </html>
